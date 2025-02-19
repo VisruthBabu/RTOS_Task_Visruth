@@ -1,4 +1,13 @@
- #include <Arduino.h>
+/*
+  ESP32 FreeRTOS LED Control with Push Button and Mutex
+
+  - Reads a push button (GPIO23) and toggles an LED state.
+  - Controls an LED (GPIO2) based on the toggled state.
+  - Uses a Mutex to synchronize access to the shared ledstate variable.
+  - Runs tasks independently using FreeRTOS for efficient execution.
+*/
+
+#include <Arduino.h>
 
 #if CONFIG_FREERTOS_UNICORE
 static const BaseType_t app_cpu = 0;
