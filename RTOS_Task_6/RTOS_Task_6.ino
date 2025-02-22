@@ -15,13 +15,11 @@ uint8_t variable = 0;
 
 void Task1(void *pvParameters) {
   while (1) {
-    if (xSemaphoreTake(BinarySemaphore, portMAX_DELAY)) {
       Serial.println("Task1 incrementing variable..");
       variable++;
       Serial.println(variable);
       vTaskDelay(1000 / portTICK_PERIOD_MS);  // Work for 1000ms
       xSemaphoreGive(BinarySemaphore);
-    }
     vTaskDelay(100 / portTICK_PERIOD_MS);  
   }
 }
@@ -33,7 +31,6 @@ void Task2(void *pvParameters) {
       variable++;
       Serial.println(variable);
       vTaskDelay(1000 / portTICK_PERIOD_MS);  // Work for 1000ms
-      xSemaphoreGive(BinarySemaphore);
     }
     vTaskDelay(100 / portTICK_PERIOD_MS); //for the next task to take the semaphore
   }

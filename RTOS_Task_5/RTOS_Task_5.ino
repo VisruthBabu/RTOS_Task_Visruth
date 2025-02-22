@@ -38,7 +38,6 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   pinMode(PUSHBUTTON, INPUT);
 
-
   BinarySemaphore = xSemaphoreCreateBinary();
 
   xTaskCreatePinnedToCore(ToggleLED, "LEDToggle", 2048, NULL, 1, NULL, app_cpu);

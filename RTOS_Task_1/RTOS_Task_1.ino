@@ -57,7 +57,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("LED Blinking Code with FreeRTOS");
 
-  xTaskCreatePinnedToCore(PushButton, "ReadButton", 1024, NULL, 2, NULL, app_cpu);
+  xTaskCreatePinnedToCore(PushButton, "ReadButton", 1024, NULL, 1, NULL, app_cpu);
   xTaskCreatePinnedToCore(BlinkLed, "BlinkLed", 1024, NULL, 1, NULL, app_cpu);
 
   vTaskDelete(NULL);  // Delete the setup() task
